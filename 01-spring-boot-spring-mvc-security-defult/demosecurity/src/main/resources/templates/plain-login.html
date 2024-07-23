@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <style>
+        .funny{
+            color:red;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title> Custome login page </title>
+</head>
+<body>
+<h3> My costume login my page </h3>
+<div th:if="${param.error}">
+    <i class = "funny" >Sorry! You entered invalid username/password.</i>
+</div>
+<div th:if="${param.logout}">
+
+    <div class="alert alert-success col-xs-offset-1 col-xs-10">
+        You have been loggout.
+    </div>
+</div>
+<form action="#" th:action="@{/authenticateTheUser}" method="POST">
+    <p>
+        User name: <input type="text" name="username" />
+    </p>
+    <p>
+        Password: <input type="password" name="password" />
+    </p>
+    <input type="submit" value="Login" />
+</form>
+</body>
+</html>
